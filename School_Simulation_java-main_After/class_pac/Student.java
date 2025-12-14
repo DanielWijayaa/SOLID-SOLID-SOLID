@@ -1,8 +1,8 @@
 ////////////////////////////
 // Implementation of Student
-//////////////////////////// 
+////////////////////////////
 
-
+// LSP
 // Naming package
 package class_pac;
 
@@ -10,7 +10,7 @@ package class_pac;
 public abstract class Student extends Person {
 
     // Constructor
-    Student(String name, int nf, int nc) {
+    public Student(String name, int nf, int nc) {
         // Initialization of super-class
         super(name, nf, nc);
 
@@ -18,9 +18,9 @@ public abstract class Student extends Person {
     }
 
     // Attend
-    // It gets ovveride from Junior and Senior
-    void attend(int N, int L) {}
+    // Must be implemented by all subclasses (Junior, Senior, etc)
+    public abstract void attend(int N, int L);
 
-    // Print for Student is the same as Person's.
-    // So that method is public
+    // Print behavior is inherited from Person
+    // No override needed (LSP-safe)
 }

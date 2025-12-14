@@ -1,7 +1,7 @@
 ///////////////////////////
 // Implementation of Junior
 ///////////////////////////
-
+//INI SRP
 package class_pac;
 
 // Junior student (SRP applied)

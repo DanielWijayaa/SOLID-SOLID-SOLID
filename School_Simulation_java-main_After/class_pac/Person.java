@@ -3,7 +3,7 @@
 // ////////////////////////////////////
 
 package class_pac;
-
+//LSP
 // Base abstraction
 abstract class Person {
 
