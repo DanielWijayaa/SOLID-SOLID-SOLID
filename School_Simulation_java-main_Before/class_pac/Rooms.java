@@ -1,7 +1,7 @@
 ////////////////////////////////////////
 // Implementation of Room, Yard, Stairs,
 // Corridor, Classroom, Floor
-////////////////////////////////////////
+//////////////////////////////////////// 
 
 
 // Naming package
@@ -10,45 +10,51 @@ package class_pac;
 
 
 // Room
-    abstract class Room {
-        Student student;
+abstract class Room {
+    Student student;    // Temporary save of Student in Room
 
-        Room() {
-            this.student = null;
-        }
-
-        void enter(Student s) {}
-        Student exit() { return null; }
+    // Constructor
+    Room() {
+        this.student = null;
+        System.out.println("A New Room has been created!");
     }
 
+    // Enter student in room
+    // It will be written in children
+    void enter(Student s) {}
 
+    // Exit student from room
+    Student exit() {
+        // Return null just for no error.
+        // It ges override in children-classes
+        return null;
+    }
+}
 
-
-// Yard
-// Naming package
 
 
 // Yard
 class Yard extends Room {
-
     // Constructor
     Yard() {
         // Initialization of super-class
         super();
+
         System.out.println("A New Yard has been created!");
     }
 
     // Enter student in yard
     @Override
     void enter(Student s) {
-        // Temporary save of Student
+        // Temp save of Student
         this.student = s;
         System.out.println(s.get_name() + " enters schoolyard");
     }
 
-    // Exit student from yard
+    // Exit student 
     @Override
     Student exit() {
+        // Return Student
         System.out.println(this.student.get_name() + " exits schoolyard");
         return this.student;
     }
@@ -141,7 +147,7 @@ class Classroom {
     void enter(Student s) {
         // If classroom is full
         if (size >= Cclass) return;
-
+            
         s.set_in();
         this.students[size++] = s;
 
@@ -200,7 +206,7 @@ class Classroom {
     // Print
     void print() {
         System.out.println("People in class " + no + " are: ");
-
+        
         for (int i=0 ; i<size ; ++i) students[i].print();
 
         if (teacher != null) teacher.print();
@@ -210,7 +216,7 @@ class Classroom {
 
 
 // Floor
-class Floor {
+class Floor {    
     private int no;                 // Number of Floor
 
     private Classroom[] classes;    // Classrooms of Floor
@@ -224,7 +230,7 @@ class Floor {
         this.corridor = new Corridor();
 
         for (int i=0 ; i<6 ; ++i) classes[i] = new Classroom(i, Cclass);
-
+        
         System.out.println("A New Floor has been created!");
     }
 

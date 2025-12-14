@@ -1,37 +1,27 @@
+///////////////////////////////////////
+// Implementation of Person and Student
+// ////////////////////////////////////
+
+
 // Naming package
 package class_pac;
 
-// ==============================
-// ISP: Segregated Interfaces
-// ==============================
 
-// Interface khusus untuk Student
-interface Attendee {
-    void attend(int N, int L);
-}
-
-// Interface khusus untuk Teacher
-interface Instructor {
-    void teach(int N, int Lt);
-}
-
-
-// ==============================
-// Person (tetap abstract)
-// ==============================
+// Person
 abstract class Person {
-
     // Private variables
     private String name;    // Person's name
     private int no_flo;     // Person's floor_number
     private int no_cls;     // Person's classroom_number
 
-    // Package-visible variables
+    // Package's variables
     boolean in_cls;
     int tired;
 
+
     // Constructor
     Person(String name, int nf, int nc) {
+        // Initialization
         this.name = name;
         this.no_flo = nf;
         this.no_cls = nc;
@@ -42,19 +32,26 @@ abstract class Person {
         System.out.println("A New Person has been created!");
     }
 
+
     // Print
     public void print() {
         System.out.println(this.name + " " + this.tired);
     }
 
-    // Getters
+
+    // Get name
     String get_name() { return this.name; }
+    // Get no_flo
     int get_flo() { return this.no_flo; }
+    // Get no_cls
     int get_cls() { return this.no_cls; }
+    // Get in_cls
     boolean get_in() { return this.in_cls; }
+    // Get tired
     int get_tired() { return this.tired; }
 
-    // Setters
+    // Set in_cls
     void set_in() { this.in_cls = true; }
+    // Set out_cls
     void set_out() { this.in_cls = false; }
 }
